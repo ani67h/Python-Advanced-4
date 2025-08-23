@@ -8,14 +8,15 @@ name = 0
 
 def intro():
     print("May I ask your name please?")
-    # declaring name varriable golbal so it can be accessed outside the function gobal name
+    # declaring name varriable golbal so it can be accessed outside the function
+    global name
     name = input() # ask for the name
     print(name + ", we are going to play a game. I am thinking of a number between 1 and 100")
     if (number %2 == 0):
         x = 'even'
     else:
         x = 'odd'
-    print("\nThis is and {} number".format(x))
+    print("\nThis is an {} number".format(x))
     time.sleep(.5)
     print("Go ahead. Guess!")
 
@@ -34,7 +35,7 @@ def pick():
             # stores the guess as an integer instead of a string
             guess = int(enter)
             if guess <= 100 and guess>=1: # if they are in range
-                guesstaken += guesstaken
+                guesstaken = guesstaken + 1
                 # add one guess each time the player is wrong
                 if guesstaken < 6:
                     if guess < number:
@@ -64,9 +65,9 @@ def pick():
     if guess != number:
         print("Nope, the number I was thinking was" + str(number)) 
 
-    playagain="yes"
-    while playagain == "yes" or playagain == "y" or playagain == "Yes" or playagain == "YES":
-        intro()
-        pick()
-        print("DO you want to play again?")
-        playagain=input()
+playagain="yes"
+while playagain == "yes" or playagain == "y" or playagain == "Yes" or playagain == "YES":
+    intro()
+    pick()
+    print("DO you want to play again?")
+    playagain=input()
